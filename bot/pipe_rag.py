@@ -25,8 +25,8 @@ def create_qa_chain(prompt, llm, db):
 #Load db
 from langchain_community.embeddings import GPT4AllEmbeddings
 from langchain_community.vectorstores import FAISS
-embedding_model = GPT4AllEmbeddings(model_file='models/all-MiniLM-L6-v2-f16.gguf')
-db = FAISS.load_local('faiss_db',embedding_model,allow_dangerous_deserialization=True)
+embedding_model = GPT4AllEmbeddings(model_file='./models/all-MiniLM-L6-v2-f16.gguf')
+db = FAISS.load_local('./VectorDB/faiss_db',embedding_model,allow_dangerous_deserialization=True)
 
 #Đưa ra câu trả lời tù context
 def get_answer(question):

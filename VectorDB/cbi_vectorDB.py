@@ -8,7 +8,7 @@ path_db = 'vectorDB/faiss_db'
 
 
 def read_file():
-    df = pd.read_csv("data/Diem_new.csv", encoding='utf-8')
+    df = pd.read_csv("./data/Diem_new.csv", encoding='utf-8')
 
     df = df.astype(str)  # Đảm bảo toàn bộ dữ liệu là dạng string
     return df
@@ -35,7 +35,7 @@ def create_db():
 
     chucks = text_splitter.split_text(raw_text)
     #Tạo vector từ văn bản
-    embeddings = GPT4AllEmbeddings(model_file = 'models/all-MiniLM-L6-v2-f16.gguf')
+    embeddings = GPT4AllEmbeddings(model_file = './models/all-MiniLM-L6-v2-f16.gguf')
     #Đưa vao FAISS Vector DB
     db = FAISS.from_texts(texts=chucks, embedding=embeddings)
     db.save_local(path_db)

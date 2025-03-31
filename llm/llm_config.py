@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 # Cấu hình LLM với Gemini
-API_KEY = "AIzaSyAtUFbrnm8ucSIrO0ssRSayDd0efP_6HFo"
+API_KEY = "THAY BẰNG API KEY CỦA BẠN LẤY TỪ AI STUDIO"
 API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 llm = ChatOpenAI(
