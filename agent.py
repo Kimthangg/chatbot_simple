@@ -1,4 +1,3 @@
-from langchain_openai import ChatOpenAI
 from langchain.prompts import (
     ChatPromptTemplate,
     MessagesPlaceholder,
@@ -9,18 +8,7 @@ import time
 import streamlit as st
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-# Cấu hình LLM với Gemini
-API_KEY = "THAY THẾ BẰNG KEY CỦA BẠN LẤY TẠI AI STUDIO"
-API_BASE = "https://generativelanguage.googleapis.com/v1beta/openai/"
-
-llm = ChatOpenAI(
-    model='gemini-2.0-flash',
-    temperature=1,
-    max_tokens=1024,
-    api_key=API_KEY,
-    base_url=API_BASE,
-    streaming=True
-)
+from llm import llm
 
 system_prompt = "You are a helpful assistant called Neura."
 
