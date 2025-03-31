@@ -1,8 +1,8 @@
 import streamlit as st
 import time
-from agent import gemini_chatbot
-from simplechain import get_answer
-from agent_intent import supervised_model
+from bot.agent import gemini_chatbot
+from bot.pipe_rag import get_answer
+from bot.agent_intent import supervised_model
 
 st.set_page_config(page_title="Chat với Gemini", page_icon="💬")
 st.title("🤖 Chatbot Gemini")
@@ -40,7 +40,9 @@ if prompt:
         else:
             # Gọi API và xử lý stream
             for chunk in gemini_chatbot(prompt):
-                time.sleep(0.2)  # Giả lập typing
-                response_text += chunk.content
-                response_container.markdown(response_text + "▌")  # Hiển thị hiệu ứng typing
+                chunk_split = chunk.content.split(' ')
+                for chunk_nho in chunk_split:
+                    time.sleep(0.01)  # Giả lập typing
+                    response_text += chunk_nho + " "
+                    response_container.markdown(response_text + "▌")  # Hiển thị hiệu ứng typing
         response_container.markdown(response_text)  # Xóa hiệu ứng khi hoàn tất

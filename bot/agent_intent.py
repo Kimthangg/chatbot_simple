@@ -1,4 +1,4 @@
-from llm import llm
+from llm.llm_config import llm
 from langchain.prompts import (
     SystemMessagePromptTemplate,
     HumanMessagePromptTemplate,

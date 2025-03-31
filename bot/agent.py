@@ -8,7 +8,7 @@ import time
 import streamlit as st
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
-from llm import llm
+from llm.llm_config import llm
 
 system_prompt = "You are a helpful assistant called Neura."
 

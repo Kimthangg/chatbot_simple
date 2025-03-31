@@ -1,5 +1,5 @@
 #Load llm
-from llm import llm
+from llm.llm_config import llm
 def load_llm():
     llm.temperature = 0.1
     return llm
